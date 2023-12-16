@@ -1,0 +1,9 @@
+{% extends 'petsapp/base.html' %}
+{% block link %}{{block.super}} {% endblock %}
+{% block title %}Checkout Success{% endblock %}
+
+{% block content %}
+<h2 class="alert alert-success" role="alert">Payment successful!</h2>
+<p class="text-white bg-secondary"><marquee>Thank you for your purchase.</marquee></p>
+{% endblock %}
+{% block script %}{{block.super}}{% endblock %}

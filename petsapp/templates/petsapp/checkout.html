@@ -1,0 +1,13 @@
+{% extends 'petsapp/base.html' %}
+
+{% block title %}Checkout{% endblock %}
+
+{% block content %}
+<h2>Checkout</h2>
+<p>Please provide your payment information:</p>
+<form method="post">
+    {% csrf_token %}
+    <!-- Your payment form fields here (e.g., credit card number, expiration date, etc.) -->
+    <input type="submit" value="Pay">
+</form>
+{% endblock %}

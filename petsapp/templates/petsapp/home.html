@@ -1,0 +1,14 @@
+{% extends 'petsapp/base.html' %}
+
+{% block content %}
+<h2>Welcome to the Pets Shop!</h2>
+<ul>
+    {% for pet in pets %}
+    <li>
+        <a href="{% url 'pet_detail' pet.id %}">
+            {{ pet.name }} - ${{ pet.price }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

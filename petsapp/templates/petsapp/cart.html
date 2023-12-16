@@ -1,0 +1,22 @@
+{% extends 'petsapp/base.html' %}
+{% block link %}{{block.super}} {% endblock %}
+{% block content %}
+<h2>Your Cart</h2>
+<ul>
+    {% for item in cart_items %}
+    <li>
+        {{ item.pet.name }} - ${{ item.pet.price }} x {{ item.quantity }}
+        <form action="{% url 'update_cart' item.pet.id %}" method="post">
+            {% csrf_token %}
+            <input type="number" name="quantity" value="{{ item.quantity }}" min="1">
+            <input type="submit" value="Update" class="btn btn-outline-success my-2 my-sm-0">
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+<form action="{% url 'checkout' %}" method="post">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-primary" value="Checkout">
+</form>
+{% endblock %}
+{% block script %}{{block.super}}{% endblock %}

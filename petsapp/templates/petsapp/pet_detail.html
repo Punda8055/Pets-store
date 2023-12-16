@@ -1,0 +1,12 @@
+{% extends 'petsapp/base.html' %}
+{% load static %}
+{% block content %}
+<h2>{{ pet.name }}</h2>
+<img  src="{{pet.image.url}}"  alt="{{ pet.name }}" width="200">
+<p>{{ pet.description }}</p>
+<p>Price: ${{ pet.price }}</p>
+<form action="{% url 'add_to_cart' pet.id %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Add to Cart">
+</form>
+{% endblock %}
